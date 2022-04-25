@@ -81,7 +81,7 @@ public class BlackJack {
 	protected void initBots() {
 		Bot bot1 = new Bot("Bot1");
 		Bot bot2 = new Bot("Bot2");
-		// String botStrategyString = getBotStrategy(); // UNCOMMENT THIS
+		String botStrategyString = getBotStrategy(); // UNCOMMENT THIS
 		// create and set Bots strategy here
 		players.add(bot1);
 		players.add(bot2);
