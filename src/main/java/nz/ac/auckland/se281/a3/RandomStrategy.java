@@ -19,7 +19,7 @@ public class RandomStrategy implements BotStrategy {
 	@Override
 	public int bet() {
 		Random rand = new Random();
-		return rand.nextInt(102) - 1;
+		return rand.nextInt(100) + 1;
 	}
 
 }
