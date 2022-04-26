@@ -1,19 +1,24 @@
 package nz.ac.auckland.se281.a3;
 
+import java.util.Random;
+
 import nz.ac.auckland.se281.a3.Participant.Action;
 
 public class HighRiskStrategy implements BotStrategy {
 
 	@Override
 	public Action action(int score) {
-		// TODO Auto-generated method stub
-		return null;
+		if (score >= 19) {
+			return Action.HOLD;
+		} else {
+			return Action.HIT;
+		}
 	}
 
 	@Override
 	public int bet() {
-		// TODO Auto-generated method stub
-		return 0;
+		Random rand = new Random();
+		return rand.nextInt(51) + 50;
 	}
 
 }
