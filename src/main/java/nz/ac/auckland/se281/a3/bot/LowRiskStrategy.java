@@ -1,14 +1,15 @@
-package nz.ac.auckland.se281.a3;
+package nz.ac.auckland.se281.a3.bot;
 
 import java.util.Random;
 
+import nz.ac.auckland.se281.a3.Participant;
 import nz.ac.auckland.se281.a3.Participant.Action;
 
-public class HighRiskStrategy implements BotStrategy {
+public class LowRiskStrategy implements BotStrategy {
 
 	@Override
 	public Action action(int score) {
-		if (score >= 19) {
+		if (score >= 17) {
 			return Action.HOLD;
 		} else {
 			return Action.HIT;
@@ -18,7 +19,7 @@ public class HighRiskStrategy implements BotStrategy {
 	@Override
 	public int bet() {
 		Random rand = new Random();
-		return rand.nextInt(51) + 50;
+		return rand.nextInt(41) + 10;
 	}
 
 }
