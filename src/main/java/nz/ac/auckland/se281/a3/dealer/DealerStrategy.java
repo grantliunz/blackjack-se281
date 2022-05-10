@@ -6,6 +6,13 @@ import nz.ac.auckland.se281.a3.Participant.Action;
 import nz.ac.auckland.se281.a3.Player;
 
 public interface DealerStrategy {
+
+	/**
+	 * 
+	 * @param score
+	 * @param players
+	 * @return
+	 */
 	Action action(int score, List<Player> players);
 
 }

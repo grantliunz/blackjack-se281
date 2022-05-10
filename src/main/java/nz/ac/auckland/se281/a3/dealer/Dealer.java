@@ -9,6 +9,7 @@ import nz.ac.auckland.se281.a3.Participant;
  *
  */
 public class Dealer extends Participant {
+	private DealerStrategy strategy;
 
 	public Dealer(String name) {
 		super(name);
@@ -17,6 +18,14 @@ public class Dealer extends Participant {
 	@Override
 	public Action decideAction(Hand hand) {
 		return Action.HOLD;
+	}
+
+	/**
+	 * 
+	 * @param strategy
+	 */
+	public void setStrategy(DealerStrategy strategy) {
+		this.strategy = strategy;
 	}
 
 }

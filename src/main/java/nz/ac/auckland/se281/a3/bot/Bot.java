@@ -23,6 +23,10 @@ public class Bot extends Player {
 		return strategy.bet();
 	}
 
+	/**
+	 * 
+	 * @param strategy
+	 */
 	public void setStrategy(BotStrategy strategy) {
 		this.strategy = strategy;
 	}
