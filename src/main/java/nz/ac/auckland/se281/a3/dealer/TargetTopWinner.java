@@ -15,16 +15,17 @@ public class TargetTopWinner implements DealerStrategy {
 
 		// Decide which player is the target
 		Player target = player1;
-		if (player1.getNetWins() < bot1.getNetWins()) {
+		if (bot1.getNetWins() > target.getNetWins()) {
 			target = bot1;
-		} else if (player1.getNetWins() < bot2.getNetWins()) {
+		}
+		if (bot2.getNetWins() > target.getNetWins()) {
 			target = bot2;
 		}
 
 		// Checks to see action of dealer
 		if (target.getHand().isBust()) {
 			return Action.HOLD;
-		} else if (target.getHand().getScore() == 21 && target.getHand().getCards().size() == 2) {
+		} else if (target.getHand().isBlackJack()) {
 			if (score >= 17) {
 				return Action.HOLD;
 			} else {

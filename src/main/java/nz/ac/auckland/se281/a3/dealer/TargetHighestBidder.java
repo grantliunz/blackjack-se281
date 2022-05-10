@@ -17,15 +17,16 @@ public class TargetHighestBidder implements DealerStrategy {
 
 		// Decide which player is the target
 		Hand target = player1;
-		if (player1.getBet() < bot1.getBet()) {
+		if (bot1.getBet() > target.getBet()) {
 			target = bot1;
-		} else if (player1.getBet() < bot2.getBet()) {
+		}
+		if (bot2.getBet() > target.getBet()) {
 			target = bot2;
 		}
 
 		if (target.isBust()) {
 			return Action.HOLD;
-		} else if (target.getScore() == 21 && target.getCards().size() == 2) {
+		} else if (target.isBlackJack()) {
 			if (score >= 17) {
 				return Action.HOLD;
 			} else {

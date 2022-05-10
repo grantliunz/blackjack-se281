@@ -8,6 +8,7 @@ import nz.ac.auckland.se281.a3.bot.BotStrategy;
 import nz.ac.auckland.se281.a3.bot.BotStrategyFactory;
 import nz.ac.auckland.se281.a3.dealer.Dealer;
 import nz.ac.auckland.se281.a3.dealer.TargetHighestBidder;
+import nz.ac.auckland.se281.a3.dealer.TargetTopWinner;
 
 /**
  * Unless it is specified in the JavaDoc, you cannot change any methods.
@@ -99,7 +100,7 @@ public class BlackJack {
 	 */
 	protected void initDealer() {
 		// set the initial strategy using the Strategy pattern
-		dealer = new Dealer("Dealer");
+		dealer = new Dealer("Dealer", players);
 		dealer.setStrategy(new TargetHighestBidder());
 	}
 
@@ -108,6 +109,26 @@ public class BlackJack {
 	 * change this method for Task 2 and Task 3
 	 */
 	protected void printAndUpdateResults(int round) {
+
+		boolean dealerTargetWinner = false;
+
+		for (Player player : players) {
+			if (checkIfWon(player)) {
+				player.roundWon();
+			} else {
+				player.roundLost();
+			}
+			if (player.getNetWins() >= 2) {
+				dealerTargetWinner = true;
+			}
+		}
+
+		if (dealerTargetWinner) {
+			dealer.setStrategy(new TargetTopWinner());
+		} else {
+			dealer.setStrategy(new TargetHighestBidder());
+
+		}
 
 	}
 
@@ -118,4 +139,27 @@ public class BlackJack {
 
 	}
 
+	/**
+	 * checks if the player has won/lost via bust, blackjack or outscoring the
+	 * dealer
+	 * 
+	 * @param player the player being checked
+	 * @return if the player has won
+	 */
+	private boolean checkIfWon(Player player) {
+		if (player.getHand().isBust()) {
+			return false;
+		}
+
+		if (player.getHand().isBlackJack() || dealer.getHand().isBust()) {
+			return true;
+		}
+
+		if (player.getHand().getScore() > dealer.getHand().getScore()) {
+			return true;
+		}
+
+		return false;
+
+	}
 }

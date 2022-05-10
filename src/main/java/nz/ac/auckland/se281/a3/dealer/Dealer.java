@@ -1,7 +1,10 @@
 package nz.ac.auckland.se281.a3.dealer;
 
+import java.util.List;
+
 import nz.ac.auckland.se281.a3.Hand;
 import nz.ac.auckland.se281.a3.Participant;
+import nz.ac.auckland.se281.a3.Player;
 
 /**
  * 
@@ -10,14 +13,16 @@ import nz.ac.auckland.se281.a3.Participant;
  */
 public class Dealer extends Participant {
 	private DealerStrategy strategy;
+	private List<Player> players;
 
-	public Dealer(String name) {
+	public Dealer(String name, List<Player> players) {
 		super(name);
+		this.players = players;
 	}
 
 	@Override
 	public Action decideAction(Hand hand) {
-		return Action.HOLD;
+		return strategy.action(getHand().getScore(), players);
 	}
 
 	/**
