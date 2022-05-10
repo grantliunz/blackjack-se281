@@ -27,9 +27,9 @@ public class TargetHighestBidder implements DealerStrategy {
 			return Action.HOLD;
 		} else if (target.getScore() == 21 && target.getCards().size() == 2) {
 			if (score >= 17) {
-				return Action.HIT;
-			} else {
 				return Action.HOLD;
+			} else {
+				return Action.HIT;
 			}
 		} else {
 			if (target.getScore() > score) {
