@@ -7,7 +7,7 @@ package nz.ac.auckland.se281.a3;
  */
 public abstract class Player extends Participant {
 
-	int netWins = 0;
+	private int netWins = 0;
 
 	public Player(String name) {
 		super(name);
