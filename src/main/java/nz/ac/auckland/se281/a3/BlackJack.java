@@ -118,10 +118,10 @@ public class BlackJack {
         for (Player player : players) {
             if (checkIfWon(player)) {
                 player.roundWon();
-                System.out.println(String.format("Round %d: %s won %d chips", round, player.getName(), player.getHand().getBet()));
+                System.out.printf("Round %d: %s won %d chips%n", round, player.getName(), player.getHand().getBet());
             } else {
                 player.roundLost();
-                System.out.println(String.format("Round %d: %s lost %d chips", round, player.getName(), player.getHand().getBet()));
+                System.out.printf("Round %d: %s lost %d chips%n", round, player.getName(), player.getHand().getBet());
             }
             if (player.getNetWins() >= 2) {
                 dealerTargetWinner = true;
@@ -143,6 +143,9 @@ public class BlackJack {
      * TODO This method should print the statistic of the game when it ends
      */
     protected void printGameStatistics() {
+        System.out.printf("%s won %d times and lost %d times%n", players.get(0).getName(), players.get(0).getWins(), players.get(0).getLosses());
+        System.out.printf("%s won %d times and lost %d times%n", players.get(1).getName(), players.get(1).getWins(), players.get(1).getLosses());
+        System.out.printf("%s won %d times and lost %d times%n", players.get(2).getName(), players.get(2).getWins(), players.get(2).getLosses());
 
     }
 
