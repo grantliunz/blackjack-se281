@@ -81,8 +81,8 @@ public class BlackJack {
     }
 
     /**
-     * TODO This method initializes the Bots, you should change this method for
-     * Task1
+     * This method initializes the Bots, as well as setting their strategies
+     * Task 1
      */
     protected void initBots() {
         Bot bot1 = new Bot("Bot1");
@@ -97,7 +97,7 @@ public class BlackJack {
     }
 
     /**
-     * TODO This method initializes the Dealer, you should change this method for
+     * This method initializes the Dealer, as well as setting its strategy
      * Task2
      */
     protected void initDealer() {
@@ -107,8 +107,8 @@ public class BlackJack {
     }
 
     /**
-     * TODO This method prints and updates the results (wins and losses) you should
-     * change this method for Task 2 and Task 3
+     * This method prints and updates the results (wins and losses) of the players you should
+     * Task 2 and Task 3
      */
     protected void printAndUpdateResults(int round) {
 
@@ -140,7 +140,7 @@ public class BlackJack {
     }
 
     /**
-     * TODO This method should print the statistic of the game when it ends
+     * This method should print the statistic of the game when it ends
      */
     protected void printGameStatistics() {
         System.out.printf("%s won %d times and lost %d times%n", players.get(0).getName(), players.get(0).getWins(), players.get(0).getLosses());
