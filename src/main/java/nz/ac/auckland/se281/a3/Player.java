@@ -1,36 +1,36 @@
 package nz.ac.auckland.se281.a3;
 
 /**
- * 
  * You can (and should) add new fields and/or methods
- *
  */
 public abstract class Player extends Participant {
 
-	private int netWins = 0;
+    private int wins = 0;
+    private int losses = 0;
 
-	public Player(String name) {
-		super(name);
-	}
 
-	public abstract int makeABet();
+    public Player(String name) {
+        super(name);
+    }
 
-	/**
-	 * 
-	 */
-	public void roundWon() {
-		netWins += 1;
-	}
+    public abstract int makeABet();
 
-	/**
-	 * 
-	 */
-	public void roundLost() {
-		netWins -= 1;
-	}
+    /**
+     *
+     */
+    public void roundWon() {
+        wins += 1;
+    }
 
-	public int getNetWins() {
-		return netWins;
-	}
+    /**
+     *
+     */
+    public void roundLost() {
+        losses += 1;
+    }
+
+    public int getNetWins() {
+        return wins - losses;
+    }
 
 }
