@@ -16,14 +16,14 @@ public abstract class Player extends Participant {
     public abstract int makeABet();
 
     /**
-     *
+     * Updates the current win counter if the player won the round
      */
     public void roundWon() {
         wins += 1;
     }
 
     /**
-     *
+     * Updates the curent loss counter if the player lost the round
      */
     public void roundLost() {
         losses += 1;
