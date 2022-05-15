@@ -9,10 +9,20 @@ public abstract class Player extends Participant {
 	private int losses = 0;
 
 
+	/**
+	 * Initializes the player with its name and calls the participant constructor
+	 *
+	 * @param name the name of the player
+	 */
 	public Player(String name) {
 		super(name);
 	}
 
+	/**
+	 * Determines the bet amount of the player and return it as an integer
+	 *
+	 * @return the bet amount
+	 */
 	public abstract int makeABet();
 
 	/**

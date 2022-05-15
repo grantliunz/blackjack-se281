@@ -33,6 +33,7 @@ public class TargetTopWinner implements DealerStrategy {
 			} else {
 				return Action.HIT;
 			}
+			//Compares score to player
 		} else {
 			if (target.getHand().getScore() > score) {
 				return Action.HIT;

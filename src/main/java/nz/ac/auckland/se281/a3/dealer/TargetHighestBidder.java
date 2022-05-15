@@ -34,6 +34,7 @@ public class TargetHighestBidder implements DealerStrategy {
 			} else {
 				return Action.HIT;
 			}
+			//Compares score to player
 		} else {
 			if (target.getScore() > score) {
 				return Action.HIT;

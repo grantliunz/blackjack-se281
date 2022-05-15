@@ -21,6 +21,11 @@ public class BlackJack {
 	private Dealer dealer;
 	private Deck deck;
 
+	/**
+	 * Initializes the blackjack game with the deck of cards that are being used by creating the list of players
+	 *
+	 * @param deck the deck of cards being used
+	 */
 	public BlackJack(Deck deck) {
 		this.deck = deck;
 		players = new ArrayList<>();
@@ -28,15 +33,18 @@ public class BlackJack {
 	}
 
 	/**
-	 * Thi constructor is for testing reasons
+	 * A protected constructor is for testing reasons and is not used.
 	 *
-	 * @param cards
+	 * @param cards the cards in the game
 	 */
 	protected BlackJack(Card... cards) {
 		this(new Deck(cards));
 
 	}
 
+	/**
+	 * The empty constructor that calls another constructor with a Deck instance
+	 */
 	public BlackJack() {
 		this(new Deck());
 	}
@@ -45,6 +53,11 @@ public class BlackJack {
 		return players;
 	}
 
+	/**
+	 * Gets the bot strategy from user input that is chosen from three options
+	 *
+	 * @return the chosen bot strategy
+	 */
 	private String getBotStrategy() {
 		System.out.println("Choose Bot strategy: random (R) - low risk (LR) - high risk (HR)");
 		String result = Main.scanner.next();
@@ -55,7 +68,9 @@ public class BlackJack {
 		return result;
 	}
 
-	// do not change this method
+	/**
+	 * Starts the main game and loops through each round while the player still wants to play
+	 */
 	public void start() {
 		initBots();
 		initDealer();

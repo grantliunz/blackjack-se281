@@ -9,6 +9,11 @@ import nz.ac.auckland.se281.a3.Player;
 public class Bot extends Player {
 	private BotStrategy strategy;
 
+	/**
+	 * Initializes bot by setting the name of the bot
+	 *
+	 * @param name the name of the bot
+	 */
 	public Bot(String name) {
 		super(name);
 	}
