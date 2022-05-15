@@ -8,38 +8,39 @@ import java.util.List;
 
 public class TargetHighestBidder implements DealerStrategy {
 
-    @Override
-    public Action action(int score, List<Player> players) {
+	@Override
+	public Action action(int score, List<Player> players) {
 
-        Hand player1 = players.get(0).getHand();
-        Hand bot1 = players.get(1).getHand();
-        Hand bot2 = players.get(2).getHand();
+		//Gets the players from input list
+		Hand player1 = players.get(0).getHand();
+		Hand bot1 = players.get(1).getHand();
+		Hand bot2 = players.get(2).getHand();
 
-        // Decide which player is the target based on player bids
-        Hand target = player1;
-        if (bot1.getBet() > target.getBet()) {
-            target = bot1;
-        }
-        if (bot2.getBet() > target.getBet()) {
-            target = bot2;
-        }
+		// Decide which player is the target based on player bids
+		Hand target = player1;
+		if (bot1.getBet() > target.getBet()) {
+			target = bot1;
+		}
+		if (bot2.getBet() > target.getBet()) {
+			target = bot2;
+		}
 
-        //Implement dealer logic to hit or hold
-        if (target.isBust()) {
-            return Action.HOLD;
-        } else if (target.isBlackJack()) {
-            if (score >= 17) {
-                return Action.HOLD;
-            } else {
-                return Action.HIT;
-            }
-        } else {
-            if (target.getScore() > score) {
-                return Action.HIT;
-            } else {
-                return Action.HOLD;
-            }
-        }
+		//Implement dealer logic to hit or hold
+		if (target.isBust()) {
+			return Action.HOLD;
+		} else if (target.isBlackJack()) {
+			if (score >= 17) {
+				return Action.HOLD;
+			} else {
+				return Action.HIT;
+			}
+		} else {
+			if (target.getScore() > score) {
+				return Action.HIT;
+			} else {
+				return Action.HOLD;
+			}
+		}
 
-    }
+	}
 }
