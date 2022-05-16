@@ -8,7 +8,6 @@ public abstract class Player extends Participant {
 	private int wins = 0;
 	private int losses = 0;
 
-
 	/**
 	 * Initializes the player with its name and calls the participant constructor
 	 *
@@ -50,6 +49,5 @@ public abstract class Player extends Participant {
 	public int getLosses() {
 		return losses;
 	}
-
 
 }

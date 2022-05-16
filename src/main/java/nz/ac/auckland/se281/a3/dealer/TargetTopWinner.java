@@ -1,16 +1,16 @@
 package nz.ac.auckland.se281.a3.dealer;
 
+import java.util.List;
+
 import nz.ac.auckland.se281.a3.Participant.Action;
 import nz.ac.auckland.se281.a3.Player;
-
-import java.util.List;
 
 public class TargetTopWinner implements DealerStrategy {
 
 	@Override
 	public Action action(int score, List<Player> players) {
 
-		//Gets the players from input list
+		// Gets the players from input list
 		Player player1 = players.get(0);
 		Player bot1 = players.get(1);
 		Player bot2 = players.get(2);
@@ -33,7 +33,7 @@ public class TargetTopWinner implements DealerStrategy {
 			} else {
 				return Action.HIT;
 			}
-			//Compares score to player
+			// Compares score to player
 		} else {
 			if (target.getHand().getScore() > score) {
 				return Action.HIT;

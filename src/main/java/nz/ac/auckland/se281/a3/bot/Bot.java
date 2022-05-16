@@ -28,7 +28,6 @@ public class Bot extends Player {
 		return strategy.bet();
 	}
 
-
 	public void setStrategy(BotStrategy strategy) {
 		this.strategy = strategy;
 	}

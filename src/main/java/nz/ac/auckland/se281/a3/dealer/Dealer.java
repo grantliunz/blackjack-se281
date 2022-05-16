@@ -1,10 +1,10 @@
 package nz.ac.auckland.se281.a3.dealer;
 
+import java.util.List;
+
 import nz.ac.auckland.se281.a3.Hand;
 import nz.ac.auckland.se281.a3.Participant;
 import nz.ac.auckland.se281.a3.Player;
-
-import java.util.List;
 
 /**
  * You should change this class for Task 2

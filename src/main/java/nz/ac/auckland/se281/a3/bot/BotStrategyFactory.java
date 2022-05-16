@@ -17,7 +17,7 @@ public class BotStrategyFactory {
 		case "HR":
 			return new HighRiskStrategy();
 		default:
-			//Default return should not be reached
+			// Default return should not be reached
 			return null;
 		}
 	}

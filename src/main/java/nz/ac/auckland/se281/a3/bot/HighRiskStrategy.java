@@ -1,8 +1,8 @@
 package nz.ac.auckland.se281.a3.bot;
 
-import nz.ac.auckland.se281.a3.Participant.Action;
-
 import java.util.Random;
+
+import nz.ac.auckland.se281.a3.Participant.Action;
 
 public class HighRiskStrategy implements BotStrategy {
 

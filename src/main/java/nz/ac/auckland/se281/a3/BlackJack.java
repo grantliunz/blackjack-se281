@@ -1,14 +1,14 @@
 package nz.ac.auckland.se281.a3;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import nz.ac.auckland.se281.a3.bot.Bot;
 import nz.ac.auckland.se281.a3.bot.BotStrategy;
 import nz.ac.auckland.se281.a3.bot.BotStrategyFactory;
 import nz.ac.auckland.se281.a3.dealer.Dealer;
 import nz.ac.auckland.se281.a3.dealer.TargetHighestBidder;
 import nz.ac.auckland.se281.a3.dealer.TargetTopWinner;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Unless it is specified in the JavaDoc, you cannot change any methods.
@@ -22,7 +22,8 @@ public class BlackJack {
 	private Deck deck;
 
 	/**
-	 * Initializes the blackjack game with the deck of cards that are being used by creating the list of players
+	 * Initializes the blackjack game with the deck of cards that are being used by
+	 * creating the list of players
 	 *
 	 * @param deck the deck of cards being used
 	 */
@@ -69,7 +70,8 @@ public class BlackJack {
 	}
 
 	/**
-	 * Starts the main game and loops through each round while the player still wants to play
+	 * Starts the main game and loops through each round while the player still
+	 * wants to play
 	 */
 	public void start() {
 		initBots();
@@ -94,8 +96,7 @@ public class BlackJack {
 	}
 
 	/**
-	 * This method initializes the Bots, as well as setting their strategies
-	 * Task 1
+	 * This method initializes the Bots, as well as setting their strategies Task 1
 	 */
 	protected void initBots() {
 		Bot bot1 = new Bot("Bot1");
@@ -110,8 +111,7 @@ public class BlackJack {
 	}
 
 	/**
-	 * This method initializes the Dealer, as well as setting its strategy
-	 * Task2
+	 * This method initializes the Dealer, as well as setting its strategy Task2
 	 */
 	protected void initDealer() {
 		// set the initial strategy using the Strategy pattern
@@ -120,8 +120,8 @@ public class BlackJack {
 	}
 
 	/**
-	 * This method prints and updates the results (wins and losses) of the players you should
-	 * Task 2 and Task 3
+	 * This method prints and updates the results (wins and losses) of the players
+	 * you should Task 2 and Task 3
 	 *
 	 * @param round the current round counter
 	 */
@@ -129,7 +129,7 @@ public class BlackJack {
 
 		boolean dealerTargetWinner = false;
 
-		//Loops through each player and checks win condition
+		// Loops through each player and checks win condition
 		for (Player player : players) {
 			if (checkIfWon(player)) {
 				player.roundWon();
@@ -138,13 +138,13 @@ public class BlackJack {
 				player.roundLost();
 				System.out.printf("Round %d: %s lost %d chips%n", round, player.getName(), player.getHand().getBet());
 			}
-			//Sees if dealer strategy needs to change
+			// Sees if dealer strategy needs to change
 			if (player.getNetWins() >= 2) {
 				dealerTargetWinner = true;
 			}
 		}
 
-		//changes dealer strategy
+		// changes dealer strategy
 		if (dealerTargetWinner) {
 			dealer.setStrategy(new TargetTopWinner());
 		} else {
@@ -158,9 +158,12 @@ public class BlackJack {
 	 * This method should print the statistic of the game when it ends
 	 */
 	protected void printGameStatistics() {
-		System.out.printf("%s won %d times and lost %d times%n", players.get(0).getName(), players.get(0).getWins(), players.get(0).getLosses());
-		System.out.printf("%s won %d times and lost %d times%n", players.get(1).getName(), players.get(1).getWins(), players.get(1).getLosses());
-		System.out.printf("%s won %d times and lost %d times%n", players.get(2).getName(), players.get(2).getWins(), players.get(2).getLosses());
+		System.out.printf("%s won %d times and lost %d times%n", players.get(0).getName(), players.get(0).getWins(),
+				players.get(0).getLosses());
+		System.out.printf("%s won %d times and lost %d times%n", players.get(1).getName(), players.get(1).getWins(),
+				players.get(1).getLosses());
+		System.out.printf("%s won %d times and lost %d times%n", players.get(2).getName(), players.get(2).getWins(),
+				players.get(2).getLosses());
 
 	}
 
@@ -173,17 +176,17 @@ public class BlackJack {
 	 */
 	private boolean checkIfWon(Player player) {
 
-		//Player loses is they bust or dealer blackjacks
+		// Player loses is they bust or dealer blackjacks
 		if (player.getHand().isBust() || dealer.getHand().isBlackJack()) {
 			return false;
 		}
 
-		//Player wins if they blackjack or dealer busts
+		// Player wins if they blackjack or dealer busts
 		if (player.getHand().isBlackJack() || dealer.getHand().isBust()) {
 			return true;
 		}
 
-		//player wins if they outscore dealer
+		// player wins if they outscore dealer
 		return player.getHand().getScore() > dealer.getHand().getScore();
 
 	}

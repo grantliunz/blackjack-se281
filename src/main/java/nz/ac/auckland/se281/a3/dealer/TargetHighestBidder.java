@@ -1,17 +1,17 @@
 package nz.ac.auckland.se281.a3.dealer;
 
+import java.util.List;
+
 import nz.ac.auckland.se281.a3.Hand;
 import nz.ac.auckland.se281.a3.Participant.Action;
 import nz.ac.auckland.se281.a3.Player;
-
-import java.util.List;
 
 public class TargetHighestBidder implements DealerStrategy {
 
 	@Override
 	public Action action(int score, List<Player> players) {
 
-		//Gets the players from input list
+		// Gets the players from input list
 		Hand player1 = players.get(0).getHand();
 		Hand bot1 = players.get(1).getHand();
 		Hand bot2 = players.get(2).getHand();
@@ -25,7 +25,7 @@ public class TargetHighestBidder implements DealerStrategy {
 			target = bot2;
 		}
 
-		//Implement dealer logic to hit or hold
+		// Implement dealer logic to hit or hold
 		if (target.isBust()) {
 			return Action.HOLD;
 		} else if (target.isBlackJack()) {
@@ -34,7 +34,7 @@ public class TargetHighestBidder implements DealerStrategy {
 			} else {
 				return Action.HIT;
 			}
-			//Compares score to player
+			// Compares score to player
 		} else {
 			if (target.getScore() > score) {
 				return Action.HIT;
